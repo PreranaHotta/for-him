@@ -1,0 +1,438 @@
+/* ================================
+   GENERAL
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: "Poppins", sans-serif;
+
+    background:
+        radial-gradient(circle at 10% 20%, rgba(255, 210, 220, 0.5), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(230, 210, 220, 0.45), transparent 30%),
+        linear-gradient(135deg, #fff8f8, #f9eeee, #f5e8ec);
+
+    color: #3d3034;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    overflow-x: hidden;
+}
+
+
+/* ================================
+   MAIN CONTAINER
+================================ */
+
+.container {
+    width: 100%;
+    max-width: 850px;
+
+    text-align: center;
+
+    padding: 55px 45px;
+
+    background: rgba(255, 255, 255, 0.68);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 70px rgba(90, 50, 60, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+    backdrop-filter: blur(15px);
+
+    animation: fadeUp 1s ease;
+}
+
+
+/* ================================
+   HEART
+================================ */
+
+.heart {
+    font-size: 55px;
+    color: #b76e79;
+
+    margin-bottom: 12px;
+
+    animation: heartbeat 2s infinite ease-in-out;
+}
+
+
+/* ================================
+   HEADINGS
+================================ */
+
+h1 {
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    color: #382d31;
+}
+
+h1 span {
+    color: #a85c69;
+    font-style: italic;
+}
+
+.subtitle {
+    margin-top: 10px;
+
+    font-size: 1rem;
+
+    color: #8a747a;
+
+    letter-spacing: 1px;
+}
+
+
+/* ================================
+   DIVIDER
+================================ */
+
+.divider {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin: 28px auto;
+}
+
+.divider span {
+    height: 1px;
+
+    width: 100px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        #c58b94
+    );
+}
+
+.divider span:last-child {
+    background: linear-gradient(
+        to left,
+        transparent,
+        #c58b94
+    );
+}
+
+.divider i {
+    color: #b76e79;
+    font-size: 13px;
+}
+
+
+/* ================================
+   SECOND HEADING
+================================ */
+
+h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 1.65rem;
+
+    font-weight: 500;
+
+    color: #59464c;
+
+    margin-bottom: 28px;
+}
+
+
+/* ================================
+   MEMORY BUTTONS
+================================ */
+
+.memory-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    text-align: left;
+}
+
+.memory-btn {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    min-height: 72px;
+
+    padding: 15px 20px;
+
+    text-decoration: none;
+
+    color: #493a3f;
+
+    background: rgba(255, 255, 255, 0.72);
+
+    border: 1px solid rgba(184, 139, 149, 0.2);
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Left accent line */
+
+.memory-btn::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 4px;
+    height: 100%;
+
+    background: #b76e79;
+
+    transform: scaleY(0);
+
+    transform-origin: bottom;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* Hover */
+
+.memory-btn:hover {
+    transform: translateX(8px);
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-color: rgba(183, 110, 121, 0.35);
+
+    box-shadow:
+        0 12px 30px rgba(120, 70, 80, 0.13);
+}
+
+.memory-btn:hover::before {
+    transform: scaleY(1);
+}
+
+
+/* Number */
+
+.number {
+    min-width: 45px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 0.9rem;
+
+    color: #b78b93;
+
+    font-weight: 600;
+}
+
+
+/* Text */
+
+.memory-text {
+    flex: 1;
+
+    font-size: 0.96rem;
+
+    font-weight: 500;
+
+    line-height: 1.5;
+}
+
+
+/* Arrow */
+
+.arrow {
+    font-size: 1.3rem;
+
+    color: #b76e79;
+
+    margin-left: 15px;
+
+    transition: transform 0.3s ease;
+}
+
+.memory-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+/* Special last memory */
+
+.memory-btn.special {
+    margin-top: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(183, 110, 121, 0.12),
+            rgba(255, 255, 255, 0.75)
+        );
+
+    border-color: rgba(183, 110, 121, 0.3);
+}
+
+.memory-btn.special .memory-text {
+    font-family: "Playfair Display", serif;
+
+    font-size: 1rem;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer-text {
+    margin-top: 35px;
+
+    color: #9b8288;
+
+    font-size: 0.82rem;
+
+    letter-spacing: 1px;
+}
+
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 12px;
+    }
+
+    .container {
+        padding: 40px 20px;
+
+        border-radius: 23px;
+    }
+
+    .heart {
+        font-size: 45px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .memory-btn {
+        padding: 14px 15px;
+
+        min-height: 68px;
+    }
+
+    .number {
+        min-width: 35px;
+
+        font-size: 0.75rem;
+    }
+
+    .memory-text {
+        font-size: 0.88rem;
+    }
+
+    .arrow {
+        font-size: 1.1rem;
+
+        margin-left: 8px;
+    }
+
+    .memory-btn:hover {
+        transform: translateX(3px);
+    }
+}
+
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
